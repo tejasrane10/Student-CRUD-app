@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student list</title>
+    <style>
+        table,tr,th,td{
+            border: 1px solid black;
+            text-align: center;
+            margin: auto;
+            width: 20%; 
+           
+        }
+        body{
+            font-family: Arial;
+            margin:20px;
+            text-align: center;
+            }
+        form{
+             display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Students List</h2>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+        </tr>
+        <%for(student of students) { %>
+            <tr>
+                <td><%= student.id %></td>
+                <td><%= student.name %></td>
+                <td><%= student.age %></td>
+                <td><%= student.course %></td>
+                <td>
+                    <a href="/students/<%= student.id %>/edit" class="btn-small"> Edit </a>
+                    <form method="POST" action="/students/<%= student.id %>?_method=DELETE" style="display:inline;">
+                     <button class="btn-small btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+    <br>
+    <br>
+
+    <a href="/students/new" class="btn">New Register</a>
+    
+</body>
+</html>
