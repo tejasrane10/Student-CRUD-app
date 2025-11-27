@@ -1,8 +1,7 @@
 import methodOverride from "method-override";
 import express from "express";
 import bodyParser from "body-parser";
-//const express= require("express");
-//const path=require("path");
+
 const app=express();
 const port=3000;
 
